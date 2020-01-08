@@ -1,19 +1,13 @@
+import 'package:crossroads_group/modals/commit_modals/commit_user.dart';
+
 class Commit {
   String message;
-  int comment_count;
-  String url;
+  CommitUser user;
 
-  Commit({
-    this.message,
-    this.comment_count,
-    this.url,
-  });
+  Commit({this.message, this.user});
 
-  factory Commit.fromJson(Map<String, dynamic> json) {
-    return Commit(
-        message: json['message'],
-        comment_count: json['comment_count'],
-        url: json['url']
-    );
+  factory Commit.fromJson(Map<String, dynamic> data) {
+    CommitUser user = CommitUser.fromJson(data['committer']);
+    return Commit(message: data['message'], user: user);
   }
 }

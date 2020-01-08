@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                     } else if (index > 0 && index <= items.length) {
                       GithubCommit item = items[index - 1];
                       return GithubCommitItem(
-                        commit: item,
+                        githubCommit: item,
                       );
                     } else {
                       return SizedBox();
