@@ -1,31 +1,31 @@
 import 'package:meta/meta.dart';
+import 'package:crossroads_group/modals/commit_modals/github_commit.dart';
 
 @immutable
 class HomeState{
 
   final bool isFetching;
-  final bool error;
+  final List<GithubCommit> commits;
 
   HomeState({
     @required this.isFetching,
-    @required this.error,
+    @required this.commits
   });
 
   factory HomeState.initial(){
     return new HomeState(
-      isFetching: false,
-      error: false
+      commits: [],
+      isFetching: false
     );
-
   }
 
   HomeState copyWith({
-    bool isFetching,
-    bool error,
+    final List<GithubCommit> commits,
+    bool isFetching
   }){
     return new HomeState(
         isFetching: isFetching ?? false,
-        error: error ?? false,
+        commits: commits ?? this.commits
     );
   }
 }
