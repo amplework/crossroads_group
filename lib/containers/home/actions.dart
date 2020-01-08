@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 import 'package:crossroads_group/modals/commit_modals/github_commit.dart';
 
-ThunkAction getCommits() {
+ThunkAction getCommitsFromServer() {
   return (Store store) async {
     try {
       store.dispatch(HomeActions.StartLoading);
@@ -14,7 +14,6 @@ ThunkAction getCommits() {
 
       List result = response.data;
       if (response.statusCode == 200 && result.length > 0) {
-        print("result commitList: ${result}");
         List commitsFromServer = result;
         List<GithubCommit> formatedCommits = [];
 
@@ -25,7 +24,6 @@ ThunkAction getCommits() {
         }
 
         store.dispatch(new GetCommits(formatedCommits));
-        store.dispatch(HomeActions.StopLoading);
       } else {
         store.dispatch(HomeActions.StopLoading);
       }

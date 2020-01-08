@@ -5,7 +5,7 @@ HomeState homeReducer(HomeState state, dynamic action) {
   if(action == HomeActions.StartLoading) {
     return new HomeState(
       isFetching: true,
-      commits: state.commits
+      commits: [], //state.commits
     );
   } else if(action == HomeActions.StopLoading) {
     return new HomeState(
