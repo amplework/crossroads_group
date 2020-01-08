@@ -16,10 +16,7 @@ class GithubCommitItem extends StatelessWidget {
           Text(
             githubCommit.commit.message,
             maxLines: 2,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold
-            ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.left,
             overflow: TextOverflow.ellipsis,
           ),
@@ -46,7 +43,8 @@ class GithubCommitItem extends StatelessWidget {
   }
 
   Widget userDetails() {
-    String commitDate = timeago.format(DateTime.parse(githubCommit.commit.user.date));
+    String commitDate =
+        timeago.format(DateTime.parse(githubCommit.commit.user.date));
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Row(
@@ -58,13 +56,10 @@ class GithubCommitItem extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-            Text(
-              " commited " + commitDate,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.normal
-              ),
-            ),
+          Text(
+            " commited " + commitDate,
+            style: TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
+          ),
         ],
       ),
     );

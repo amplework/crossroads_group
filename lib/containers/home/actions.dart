@@ -29,7 +29,7 @@ ThunkAction getCommitsFromServer() {
       }
     } on DioError catch (e) {
       store.dispatch(HomeActions.StopLoading);
-      print('error: $e');
+      print('$e');
     }
   };
 }
